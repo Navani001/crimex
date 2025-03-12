@@ -1,5 +1,6 @@
 import axios, { AxiosResponse, InternalAxiosRequestConfig } from "axios";
-import { auth } from "./authoptions";
+import { auth } from "../auth";
+
 
 
 // Create an Axios instance

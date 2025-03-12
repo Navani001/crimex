@@ -1,9 +1,5 @@
+import { GoogleSign, SignIn, SignOut } from "@/component";
 
-
-import GoogleSign from "@/component/auth/googleSign";
-import SignIn from "@/component/auth/login";
-import { SignOut } from "@/component/auth/signOut";
-import { signIn } from "next-auth/react";
 
 
 

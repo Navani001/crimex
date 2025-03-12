@@ -4,13 +4,12 @@ import CredentialsProvider from "next-auth/providers/credentials";
 // types imports
 import type { NextAuthConfig, Session } from "next-auth";
 
-import { AdapterUser } from "next-auth/adapters";
 
 import { JWT } from "next-auth/jwt";
 
-import { UserResponseType, UserType } from "../types/user";
 import GoogleProvider from "next-auth/providers/google";
-import { postRequest } from "./axios";
+
+import { postRequest } from "../axios/axios";
 
 // Modify NextAuth types with custom properties
 
@@ -103,20 +102,5 @@ const authOptions = {
   },
 } satisfies NextAuthConfig;
 
-// Function to create a user object
-function createUser(user: UserResponseType) {
-  const userObject: UserType = {
-    id: user.id,
-    name: user.name,
-    email: user.email,
-    avatar: user.avatar,
-    premiumSubscription: user.premium_subscription,
-    accessToken: user.access_token,
-    refreshToken: "", //add subId from the auth service here
-    subId: "", // add refresh token here
-  };
-
-  return userObject;
-}
 
 export const { handlers, auth, signIn, signOut } = NextAuth(authOptions);
