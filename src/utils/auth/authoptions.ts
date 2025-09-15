@@ -27,10 +27,12 @@ const authOptions = {
         
         let data:any=await postRequest("/api/auth/credential",{email:credentials.username,password:credentials.password})
         let user=data.data;
+        console.log(user)
         user=data.data
           user.id=user.user.id
           user.logo = user.user.logo;
         user.name = user.user.name;
+          user.role=user.user.role;
         user.email = user.user.email;
           return user ?user : null;
         } catch (error) {
